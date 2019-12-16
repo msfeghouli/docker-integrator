@@ -19,19 +19,14 @@ ADD $INTEGRATOR_WAR $INTEGRATOR_HOME/bin
 ADD $DRUID_TASK_JAR $INTEGRATOR_HOME/ext_scripts
 ADD script/integrator.sh $INTEGRATOR_HOME
 ADD conf/application.yml $INTEGRATOR_HOME
-COPY sample $INTEGRATOR_HOME
+COPY sample $INTEGRATOR_HOME/sample
 
 ADD Dockerfile /
 ADD README.md /
 
+ADD script/init-integrator-metatstore.sh /
 ADD script/start-integrator.sh /
 ADD script/stop-integrator.sh /
-
-#RUN hdfs dfs -mkdir -p /user/metatron/integrator/workflow
-#RUN hdfs dfs -mkdir -p /user/metatron/integrator/coordinator
-#RUN hdfs dfs -mkdir -p /user/metatron/integrator/task
-#RUN hdfs dfs -put -f $INTEGRATOR_HOME/ext_scripts /user/metatron/integrator
-#RUN hdfs dfs -put -f $INTEGRATOR_HOME/sample /user/metatron/integrator
 
 CMD ["/bin/bash"]
 

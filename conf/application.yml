@@ -8,9 +8,9 @@ spring:
             enabled: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://db-server:3306/integrator?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:mysql://localhost:3306/integrator?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: integrator
-        password: 
+        password: Metatron123$
         hikari:
             data-source-properties:
                 cachePrepStmts: true
@@ -35,7 +35,7 @@ spring:
         port: 25
         username:
         password:
-        sendAsMail: "Oozie Notification <no_reply@sk.com>"
+        sendAsMail: "Oozie Notification <no_reply@localhost>"
     thymeleaf:
         cache: true
     http:
@@ -43,22 +43,22 @@ spring:
         max-file-size: 1000Mb
         max-request-size: 1000Mb
     activemq:
-      broker-url: tcp://activemq-server:61616
+      broker-url: tcp://localhost:61616
       topic: metatron
       user: metatron
       password:
     jms:
       pub-sub-domain: true
     hadoop :
-      url : http://hadoop-namenode
-      user.name : metatron
+      url : http://localhost
+      user.name : root
       nameNodePort : 50070
       dataNodePort : 50075
       dataNodeUrlUsed : true
       defaultPath : /webhdfs/v1
       tunneling : false
     oozie :
-      oozieUrl : http://oozie-server
+      oozieUrl : http://localhost
       ooziePort : 11000
 
       timezone.offset : T+0900
@@ -70,7 +70,7 @@ spring:
       hdfs.defaultPath : /user/metatron
 
       jobConf.nameNode : hdfs://metatron-cluster
-      jobConf.jobTracker : yarn-resourcemanger:8032
+      jobConf.jobTracker : localhost:8032
       jobConf.oozie.use.system.libpath : true
       jobConf.oozie.libpath : /user/oozie/share/lib
       jobConf.impersonate.mode : true
@@ -78,7 +78,7 @@ spring:
       jobConf.defaultQueue.name : default
 
     hive :
-      hiveUrl : hive-server
+      hiveUrl : localhost
       hivePort : 10000
       hiveDefaultDB : default
       hiveUser : hadoop
@@ -89,7 +89,7 @@ spring:
     druid:
       userid: admin
       password: admin
-      discoveryUrl: http://discovery-server:8080
+      discoveryUrl: http://localhost:8180
       authorization: Basic cG9sYXJpc19jbGllbnQ6cG9sYXJpcw==
       jarPath: /user/metatron/integrator/ext_scripts/metatron-integrator-druid.jar
 
@@ -116,7 +116,7 @@ security:
       client-id: polaris_client
       client-secret: polaris
     resource:
-      token-info-uri: http://discovery-server:8080/oauth/check_token
+      token-info-uri: http://localhost:8180/oauth/check_token
 
 logging:
     level:
@@ -163,17 +163,17 @@ zuul:
   routes:
     oauth:
       path: /oauth/**
-      url: http://discovery-server:8080
+      url: http://localhost:8180
       sensitiveHeaders: Cookie,Set-Cookie
       stripPrefix: false
     stomp:
       path: /stomp/**
-      url: http://discovery-server:8080
+      url: http://localhost:8180
       sensitiveHeaders: Cookie,Set-Cookie
       strip-prefix: true
     api:
       path: /api/**
-      url: http://discovery-server:8080
+      url: http://localhost:8180
       sensitiveHeaders: Cookie,Set-Cookie
       stripPrefix: false
 
