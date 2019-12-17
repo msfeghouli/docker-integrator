@@ -41,6 +41,11 @@ run destroy.sh
 ./init-oozie-metastore.sh (Mandatory)<br/>
 ./start-oozie.sh (Mandatory)<br/>
 ./stop-oozie.sh (Optional)<br/>
+
+./init-integrator-metastore.sh (Mandatory)<br/>
+./start-integrator.sh (Mandatory)<br/>
+./stop-integrator.sh (Optional)<br/>
+
 # Stop Oozie
 
 ./stop-oozie.sh
