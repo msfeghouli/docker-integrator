@@ -3,7 +3,7 @@
 IMAGE_NAME=teamsprint/integrator:3.0.0
 CONTAINER_NAME=integrator
 
-sudo docker run -d -it --name $CONTAINER_NAME --memory="4g" \
+sudo docker run -d -it --name $CONTAINER_NAME --memory="8g" \
            -p 18088:8088 \
            -p 18042:8042 \
            -p 18081:8081 \
@@ -11,6 +11,7 @@ sudo docker run -d -it --name $CONTAINER_NAME --memory="4g" \
            -p 18090:8090 \
            -p 18091:8091 \
            -p 18180:8180 \
+           -p 18280:8280 \
            --privileged $IMAGE_NAME /usr/sbin/init
 sudo docker exec -it $CONTAINER_NAME /bin/bash
 

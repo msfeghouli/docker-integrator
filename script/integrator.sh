@@ -1,14 +1,13 @@
 #!/bin/bash
 #
 BASE=`pwd`
-APP_BASE="/home/metatron/servers/metatron-integrator"
-#DATA_BASE=/data/log/metatron-integrator
+APP_BASE="/servers/metatron-integrator"
 DATA_BASE=$APP_BASE
 PID=$APP_BASE/var/app.pid
 LOG=$DATA_BASE/app.log
 ERROR=$DATA_BASE/app-error.log
-HADOOP_HOME=/etc/hadoop/conf
-RUNNABLEUSER=metatron
+HADOOP_HOME=/opt/hadoop/etc/hadoop/
+RUNNABLEUSER=root
  
 #COMMAND="java -server -Xms2g -Xmx2g -classpath $HADOOP_HOME/core-site.xml:$HADOOP_HOME/hdfs-site.xml:$HADOOP_HOME/mapred-site.xml:$HADOOP_HOME/yarn-site.xml -Dspring.profiles.active=prod -jar $APP_BASE/bin/integrator-0.0.1-SNAPSHOT.war"
 COMMAND="java -server -Xms2g -Xmx2g -classpath $HADOOP_HOME/core-site.xml:$HADOOP_HOME/hdfs-site.xml:$HADOOP_HOME/mapred-site.xml:$HADOOP_HOME/yarn-site.xml -Dspring.profiles.active=prod -jar $APP_BASE/bin/integrator-0.0.1-SNAPSHOT.war"

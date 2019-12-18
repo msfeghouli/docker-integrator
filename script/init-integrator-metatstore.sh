@@ -30,7 +30,8 @@ send \"quit\\r\"
 expect eof
 "
 
-#schematool -initSchema -dbType mysql
+mysql -u root -p$PASSWORD integrator < integrator_init_db.sql
+
 hdfs dfs -mkdir -p /user/metatron/integrator/workflow
 hdfs dfs -mkdir -p /user/metatron/integrator/coordinator
 hdfs dfs -mkdir -p /user/metatron/integrator/task

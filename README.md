@@ -43,9 +43,14 @@ run destroy.sh
 ./stop-oozie.sh (Optional)<br/>
 
 ./init-integrator-metastore.sh (Mandatory)<br/>
-./start-integrator.sh (Mandatory)<br/>
+
+./start-metatron.sh (Mandatory)<br/>
+./start-metatron.sh (Mandatory)<br/>
+./stop-integrator.sh (Optional)<br/>
 ./stop-integrator.sh (Optional)<br/>
 
-# Stop Oozie
+# Stop Integrator
 
-./stop-oozie.sh
+./stop-metatron.sh
+./stop-integrator.sh
+

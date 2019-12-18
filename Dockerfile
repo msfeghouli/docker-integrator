@@ -12,18 +12,28 @@ ARG DRUID_TASK_JAR
 
 ENV INTEGRATOR_HOME /servers/metatron-integrator
 
+
+# setting metatron-integrator files
 RUN mkdir $INTEGRATOR_HOME
 RUN cd $INTEGRATOR_HOME; mkdir bin; mkdir var; mkdir ext_scripts; cd ..
-
 ADD $INTEGRATOR_WAR $INTEGRATOR_HOME/bin
 ADD $DRUID_TASK_JAR $INTEGRATOR_HOME/ext_scripts
 ADD script/integrator.sh $INTEGRATOR_HOME
 ADD conf/application.yml $INTEGRATOR_HOME
 COPY sample $INTEGRATOR_HOME/sample
 
+# modify metatron-discovery configuration
+ADD conf/application-config.yaml $METATRON_HOME/conf
+
+# modify hadoop configuration
+ADD conf/core-site.xml $HADOOP_CONF_DIR
+ADD conf/mapred-site.xml $HADOOP_CONF_DIR
+ADD script/start-hadoop.sh /
+
 ADD Dockerfile /
 ADD README.md /
 
+ADD script/integrator_init_db.sql /
 ADD script/init-integrator-metatstore.sh /
 ADD script/start-integrator.sh /
 ADD script/stop-integrator.sh /

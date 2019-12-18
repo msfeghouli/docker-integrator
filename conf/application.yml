@@ -44,8 +44,8 @@ spring:
         max-request-size: 1000Mb
     activemq:
       broker-url: tcp://localhost:61616
-      topic: metatron
-      user: metatron
+      topic: root
+      user: root
       password:
     jms:
       pub-sub-domain: true
@@ -69,12 +69,12 @@ spring:
       hdfs.taskSavingPath : /user/metatron/integrator/task
       hdfs.defaultPath : /user/metatron
 
-      jobConf.nameNode : hdfs://metatron-cluster
+      jobConf.nameNode : hdfs://localhost
       jobConf.jobTracker : localhost:8032
       jobConf.oozie.use.system.libpath : true
-      jobConf.oozie.libpath : /user/oozie/share/lib
+      jobConf.oozie.libpath : /user/root/share/lib
       jobConf.impersonate.mode : true
-      jobConf.impersonate.name : metatron
+      jobConf.impersonate.name : root
       jobConf.defaultQueue.name : default
 
     hive :
@@ -91,7 +91,7 @@ spring:
       password: admin
       discoveryUrl: http://localhost:8180
       authorization: Basic cG9sYXJpc19jbGllbnQ6cG9sYXJpcw==
-      jarPath: /user/metatron/integrator/ext_scripts/metatron-integrator-druid.jar
+      jarPath: /user/root/integrator/ext_scripts/metatron-integrator-druid.jar
 
 liquibase:
     contexts: prod
