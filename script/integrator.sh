@@ -9,8 +9,7 @@ ERROR=$DATA_BASE/app-error.log
 HADOOP_HOME=/opt/hadoop/etc/hadoop/
 RUNNABLEUSER=root
  
-#COMMAND="java -server -Xms2g -Xmx2g -classpath $HADOOP_HOME/core-site.xml:$HADOOP_HOME/hdfs-site.xml:$HADOOP_HOME/mapred-site.xml:$HADOOP_HOME/yarn-site.xml -Dspring.profiles.active=prod -jar $APP_BASE/bin/integrator-0.0.1-SNAPSHOT.war"
-COMMAND="java -server -Xms2g -Xmx2g -classpath $HADOOP_HOME/core-site.xml:$HADOOP_HOME/hdfs-site.xml:$HADOOP_HOME/mapred-site.xml:$HADOOP_HOME/yarn-site.xml -Dspring.profiles.active=prod -jar $APP_BASE/bin/integrator-0.0.1-SNAPSHOT.war"
+COMMAND="java -server -Xms2g -Xmx2g -classpath $HADOOP_HOME/core-site.xml:$HADOOP_HOME/hdfs-site.xml:$HADOOP_HOME/mapred-site.xml:$HADOOP_HOME/yarn-site.xml -Dspring.profiles.active=prod -jar $APP_BASE/bin/integrator-0.0.1-*.war"
  
 USR=`id -u -n`
  

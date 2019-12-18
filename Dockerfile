@@ -37,6 +37,7 @@ ADD script/integrator_init_db.sql /
 ADD script/init-integrator-metatstore.sh /
 ADD script/start-integrator.sh /
 ADD script/stop-integrator.sh /
+ADD script/prepare-integrator.sh /
 
 CMD ["/bin/bash"]
 
