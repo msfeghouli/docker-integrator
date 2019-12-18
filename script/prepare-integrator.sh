@@ -54,6 +54,7 @@ bin/metatron.sh --init start
 
 
 # oozie, integrator
+cd /
 ./init-oozie-metastore.sh
 ./start-oozie.sh
 
