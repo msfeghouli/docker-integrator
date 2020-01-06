@@ -49,6 +49,9 @@ run destroy.sh
 ./stop-integrator.sh (Optional)<br/>
 ./stop-integrator.sh (Optional)<br/>
 
+# All-in-one script
+./prepare-integrator.sh
+
 # Stop Integrator
 
 ./stop-metatron.sh
